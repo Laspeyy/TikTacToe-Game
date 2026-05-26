@@ -1,22 +1,31 @@
+import java.util.Arrays;
+import java.util.Scanner;
 public class Main{
     public static void main(String[]args){
         Scanner input = new Scanner(System.in);
-        Game game = new game();
-        // Player1  and Player2 not yet used
-        char player1 = 'x';
-        char player2 = 'o';
+        boolean temp = true;
         int position = 0;
         String player = " ";
-        char[][] board = game.boardInitialization();
-        System.out.println(board);
-        while(game.gameStatus){
+        Board board = new Board();
+        char[][] arr = board.getBoard();
+        board.boardInitialization(arr);
+        
+        while(temp)
+            //game.gameStatus
+            {
+            for(char [] row : arr){
+            System.out.println(Arrays.toString(row) + " ");
+            }
+            /** 
             System.out.println("Which Player");
             player = input.nextLine();
             System.out.println("Box number 1-9");
             position = input.nextInt();
             board = game.playerGuess(player,position,board);
+            */
+            temp = false;
         }
-        System.out.printf("Player %s wins",game.winner);
+        //System.out.printf("Player %s wins",game.winner);
     }
 }
 /**
