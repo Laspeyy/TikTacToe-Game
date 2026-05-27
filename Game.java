@@ -1,3 +1,23 @@
 public class Game{
-    Board board = new Board();
+    Player player = new Player();
+
+    public char[][] PlayerGuess(char[][] board, int row, int col){
+        if(player.getPlayerCounter() % 2 == 0){
+            for(int i = 0; i < 3;i++){
+                for(int j = 0; j < 3;j++){
+                    if(board[i][j] == board[row][col])
+                    //.........
+                }
+            }
+
+        }
+        else{
+            
+        }
+        return board;
+    }
+    public boolean gameStatus(char[][] board){
+        return false;
+    }
+  
 }

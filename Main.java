@@ -3,44 +3,31 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[]args){
         Scanner input = new Scanner(System.in);
-        boolean temp = true;
-        int position = 0;
-        String player = " ";
+        int row = 0;
+        int col = 0;
         Board board = new Board();
+        Game game = new Game(); 
         char[][] arr = board.getBoard();
         board.boardInitialization(arr);
         
-        while(temp)
-            //game.gameStatus
+        while(!game.gameStatus(arr))
+            
             {
-            for(char [] row : arr){
-            System.out.println(Arrays.toString(row) + " ");
+            for(char [] boardRow : arr){
+            System.out.println(Arrays.toString(boardRow) + " ");
             }
-            /** 
-            System.out.println("Which Player");
-            player = input.nextLine();
-            System.out.println("Box number 1-9");
-            position = input.nextInt();
-            board = game.playerGuess(player,position,board);
-            */
-            temp = false;
+            System.out.println("Which Row?");
+            row = input.nextInt();
+            System.out.println("Which Col?");
+            col = input.nextInt();
+            //board = game.playerGuess(board,row,col);
+            // Infiite Loop if this is removed
+            break;
         }
+        System.out.println();
         //System.out.printf("Player %s wins",game.winner);
     }
 }
-/**
- * How the game runs
- * Players are assigned an X or O 
- * Board shows
- * loop starts -> while game.gameStatus (game ends if gameStatus returns false)
- * board position and player1/2 passed through the gameStatus method in game class 
- * loop to find position and replace empty string with X or O
- * game status is called after to see if there are any X or O with 3 in a row
- * loop ends if gameStatus returns false
- * print to console who won
- * 
- * playerGuess will increment by 1 at the end of the method and start from 0. before playerGuess will be ran, there will be a if/else statment to see if 
- * the incremented variable % 2 == 0. If == 0 then its x turn, else its o turn
- * 
- * Edge cases: player enters same box number, player enters something other than box number/player 1 or 2, player takes multiple turns instead of typing player1,player2,player1, etc
- */
+//TODO: Finish playerGuess so that it takes in a board, row, col that replaces the given row/col with the appropriate
+// X or O
+//TODO: Finish gameStatus so that when called, it can return true or false if there is a victory or tie
