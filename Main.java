@@ -18,16 +18,18 @@ public class Main{
             }
             System.out.println("Which Row?");
             row = input.nextInt();
+            //temp break out of while loop
+            if(row == 9){
+                break;
+            }
             System.out.println("Which Col?");
             col = input.nextInt();
-            //board = game.playerGuess(board,row,col);
-            // Infiite Loop if this is removed
-            break;
+            arr = game.PlayerGuess(arr,row,col);
+            
         }
         System.out.println();
         //System.out.printf("Player %s wins",game.winner);
     }
 }
-//TODO: Finish playerGuess so that it takes in a board, row, col that replaces the given row/col with the appropriate
-// X or O
+
 //TODO: Finish gameStatus so that when called, it can return true or false if there is a victory or tie

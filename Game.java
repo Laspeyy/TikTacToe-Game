@@ -3,17 +3,14 @@ public class Game{
 
     public char[][] PlayerGuess(char[][] board, int row, int col){
         if(player.getPlayerCounter() % 2 == 0){
-            for(int i = 0; i < 3;i++){
-                for(int j = 0; j < 3;j++){
-                    if(board[i][j] == board[row][col])
-                    //.........
-                }
-            }
-
+            board[row - 1][col - 1] = 'x';
+            player.increasePlayerCounter();
         }
         else{
-            
+            board[row - 1][col - 1] = 'o';
+            player.increasePlayerCounter();
         }
+   
         return board;
     }
     public boolean gameStatus(char[][] board){
