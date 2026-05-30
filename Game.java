@@ -19,6 +19,8 @@ public class Game {
         int oCounter = 0;
         //Row checker
         for (int i = 0; i < 3; i++) {
+            xCounter = 0;
+            oCounter = 0;
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == 'x') {
                     xCounter++;
@@ -28,12 +30,19 @@ public class Game {
                 }
             }
             if (xCounter == 3 || oCounter == 3) {
-                gameNotOver = false;
+                if(xCounter == 3){
+                    System.out.println("X is the winner");
+                    gameNotOver = false;
+                    break;
+                }
+                else if(oCounter == 3){
+                    System.out.println("O is the winner");
+                    gameNotOver = false;
+                    break;
+                }
+                //gameNotOver = false;
             }
-            else{
-                xCounter = 0;
-                oCounter = 0;
-            }
+           
         }
         // Col checker
         xCounter = 0;
@@ -48,30 +57,46 @@ public class Game {
                 }
             }
             if (xCounter == 3 || oCounter == 3) {
-                gameNotOver = false;
+                 if(xCounter == 3){
+                    gameNotOver = false;
+                    System.out.println("X is the winner");
+                    break;
+                }
+                else if(oCounter == 3){
+                    gameNotOver = false;
+                    System.out.println("O is the winner");
+                    break;
+                }
             }
             else{
                 xCounter = 0;
                 oCounter = 0;
             }
         }
-        /** 
+        //diaganol checker
+        if(board[0][0] == 'x' && board[1][1] == 'x' && board[2][2] == 'x' || 
+        (board[0][2] == 'x' && board[1][1] == 'x' && board[2][0] == 'x')){
+            System.out.println("X is the winner");
+            gameNotOver = false;
+        }
+        else if(board[0][0] == 'o' && board[1][1] == 'o' && board[2][2] == 'o' ||
+        (board[0][2] == 'o' && board[1][1] == 'o' && board[2][0] == 'o')){
+            System.out.println("o is the winner");
+            gameNotOver = false;
+        }
+        // tie checker
         int tieCounter = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == 'e') {
                     tieCounter++;
-                    //gameNotOver = false;
                 }
             }
         }
-        if (tieCounter >)
-        **/
-        // checks rows for 3 x or o
-        // checks col for 3 x or o
-        // check diaganaly for 3 x or o
-        // check if there are any remaining e -> return tie if no more e left
+        if (tieCounter == 0){
+            System.out.println("It's a tie, try again next time");
+            gameNotOver = false;
+        }
         return gameNotOver;
     }
-
 }
